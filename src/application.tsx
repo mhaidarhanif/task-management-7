@@ -1,6 +1,6 @@
-import "./App.css";
+import { Card } from "./components/card";
 
-function App() {
+export function App() {
   return (
     <div>
       <header>
@@ -8,9 +8,8 @@ function App() {
         <img src="/vite.svg" alt="Logo" />
       </header>
 
+      <Card />
       <p className="read-the-docs">Application to manage tasks. </p>
     </div>
   );
 }
-
-export default App;
