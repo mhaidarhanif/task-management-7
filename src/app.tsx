@@ -1,4 +1,10 @@
-import { Gallery } from "./components/gallery";
+import { TaskList } from "./components/task-list";
+
+const taskItems = [
+  { id: 1, text: "Makan malam", isCompleted: true },
+  { id: 2, text: "Tidur", isCompleted: false },
+  { id: 3, text: "Bangun", isCompleted: false },
+];
 
 export function App() {
   return (
@@ -9,7 +15,7 @@ export function App() {
 
       <p className="read-the-docs">Application to manage tasks. </p>
 
-      <Gallery />
+      <TaskList taskItems={taskItems} />
     </div>
   );
 }
