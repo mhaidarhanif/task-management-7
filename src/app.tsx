@@ -1,4 +1,4 @@
-import { Profile } from "./components/profile";
+import { Gallery } from "./components/gallery";
 
 export function App() {
   return (
@@ -9,7 +9,7 @@ export function App() {
 
       <p className="read-the-docs">Application to manage tasks. </p>
 
-      <Profile />
+      <Gallery />
     </div>
   );
 }
