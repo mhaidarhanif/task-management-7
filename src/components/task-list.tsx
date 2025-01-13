@@ -1,20 +1,18 @@
-import { type TaskItem } from "../types/task";
+import { type Task } from "../types/task";
 import { TaskListItem } from "./task-list-item";
 
 type TaskItemsProps = {
-  taskItems: TaskItem[];
+  taskItems: Task[];
 };
 
 export function TaskList({ taskItems }: TaskItemsProps) {
   return (
-    <ul>
+    <ul className="space-y-2">
       {taskItems.map((taskItem) => {
         return (
-          <TaskListItem
-            key={taskItem.id}
-            text={taskItem.text}
-            isCompleted={taskItem.isCompleted}
-          />
+          <li key={taskItem.id}>
+            <TaskListItem taskItem={taskItem} />
+          </li>
         );
       })}
     </ul>
