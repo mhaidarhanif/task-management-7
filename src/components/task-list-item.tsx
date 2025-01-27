@@ -10,15 +10,17 @@ export function TaskListItem({ taskItem }: TaskItemProps) {
   }
 
   return (
-    <div className="flex gap-2">
-      {taskItem.isCompleted && <span>✅</span>}
-      {!taskItem.isCompleted && <span>▢</span>}
+    <div className="flex justify-between gap-2">
+      <div className="flex gap-2">
+        {taskItem.isCompleted && <span>✅</span>}
+        {!taskItem.isCompleted && <span>▢</span>}
 
-      <div>
-        <p className="text-xl font-bold">{taskItem.text}</p>
-        <p className="text-sm">
-          <time>{taskItem.date.toDateString()}</time>
-        </p>
+        <div>
+          <p className="text-xl font-bold">{taskItem.text}</p>
+          <p className="text-sm">
+            <time>{taskItem.date.toDateString()}</time>
+          </p>
+        </div>
       </div>
 
       <div className="flex items-center">

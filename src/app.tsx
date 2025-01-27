@@ -1,6 +1,9 @@
 import { useState } from "react";
-import { TaskList } from "./components/task-list";
-import { Task } from "./types/task";
+
+import { TaskList } from "@/components/task-list";
+import { Task } from "@/types/task";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
 
 const initialTaskItems: Task[] = [
   { id: 1, text: "Makan malam", isCompleted: true, date: new Date() },
@@ -11,10 +14,14 @@ const initialTaskItems: Task[] = [
 export function App() {
   const [taskItems, setTaskItems] = useState(initialTaskItems);
 
-  function addTaskItem() {
+  function addTaskItem(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+
     const newTaskItem = {
       id: taskItems[taskItems.length - 1].id + 1,
-      text: "Tugas baru",
+      text: String(formData.get("text")),
       isCompleted: false,
       date: new Date(),
     };
@@ -36,14 +43,27 @@ export function App() {
 
           <p className="read-the-docs">{taskItems.length} tasks</p>
 
-          <div>
+          <form onSubmit={addTaskItem}>
+            <div>
+              <Label className="hidden" htmlFor="text">
+                Text:
+              </Label>
+              <Input
+                id="text"
+                name="text"
+                type="text"
+                placeholder="Learn something"
+                required
+              />
+            </div>
+
             <button
-              onClick={addTaskItem}
+              type="submit"
               className="rounded bg-blue-800 p-1 text-xs text-white"
             >
               Add Task
             </button>
-          </div>
+          </form>
 
           <TaskList taskItems={taskItems} />
         </main>
