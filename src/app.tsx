@@ -1,18 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { TaskList } from "@/components/task-list";
-import { Task } from "@/types/task";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-
-const initialTaskItems: Task[] = [
-  { id: 1, text: "Makan malam", isCompleted: true, date: new Date() },
-  { id: 2, text: "Tidur", isCompleted: false, date: new Date() },
-  { id: 3, text: "Bangun", isCompleted: false, date: new Date() },
-];
+import { getTaskItemsStorage, setTaskItemsStorage } from "@/modules/task";
 
 export function App() {
-  const [taskItems, setTaskItems] = useState(initialTaskItems);
+  const [taskItems, setTaskItems] = useState(getTaskItemsStorage());
+
+  useEffect(() => {
+    setTaskItemsStorage(taskItems);
+  }, [taskItems]);
 
   function addTaskItem(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
