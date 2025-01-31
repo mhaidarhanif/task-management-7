@@ -7,6 +7,7 @@ import "./index.css";
 import { App } from "./app";
 import { AboutRoute } from "./routes/about";
 import { LayoutRoute } from "./routes/layout";
+import { CounterRoute } from "./routes/counter";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -15,6 +16,7 @@ createRoot(document.getElementById("root")!).render(
         <Route element={<LayoutRoute />}>
           <Route index path="/" element={<App />} />
           <Route path="about" element={<AboutRoute />} />
+          <Route path="counter" element={<CounterRoute />} />
         </Route>
       </Routes>
     </BrowserRouter>

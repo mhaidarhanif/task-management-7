@@ -13,6 +13,9 @@ export function LayoutRoute() {
             <li>
               <NavLinkCustom to="/about">About</NavLinkCustom>
             </li>
+            <li>
+              <NavLinkCustom to="/counter">Counter</NavLinkCustom>
+            </li>
           </ul>
         </nav>
       </header>
